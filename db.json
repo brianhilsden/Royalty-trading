@@ -2,11 +2,30 @@
   "items": [
     {
       "id": "1",
-      "name": "iPhone-15 Pro Max",
-      "details": "256GB + 8GB RAM (Single SIM), 4441mAh, Black",
-      "price": "199000",
+      "name": "Samsung Galaxy A1",
+      "details": "4G, 6.5 128GB + 6GB RAM (Dual SIM), h ",
+      "price": "29w",
+      "owner_id": "ZJ0agWFHbYPr7AnzAKJVlRUf7Eq1",
+      "owner_email": "brianomosh@gmail.com",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/9180551/1.jpg?5372"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy A24",
+      "details": "4G, 6.5 128GB + 6GB RAM (Dual SIM), 5000mAh Black",
+      "price": "29999",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/9180551/1.jpg?5372"
+    },
+    {
+      "id": "3",
+      "name": "Samsung Galaxy A24",
+      "details": "4G, 6.5 128GB + 6GB RAM (Dual SIM), 5000mAh Black",
+      "price": "29999",
       "owner_id": "54FDW4yue5hPfhGi0RxBoh1MFP52",
-      "owner_email": "brianhilsden@gmail.com"
+      "owner_email": "brianhilsden@gmail.com",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/9180551/1.jpg?5372"
     }
   ]
 }
