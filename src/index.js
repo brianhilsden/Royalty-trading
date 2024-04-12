@@ -338,22 +338,23 @@ function editProduct(product){
       const form = document.createElement("form")
       form.id=`F${product.id}`
       // Sets up form inputs for product details
-      form.innerHTML = `
-        <div class="mb-3">
-          image link: <input type="text" class="form-control" placeholder="image link" name="image" value="${product.image}">
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="name" name="productName" value="${product.name}">
-        </div>
-        <div class="mb-3">
-          <textarea class="form-control" cols="30" rows="3" placeholder="details" name="details">${product.details}</textarea>
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="price" name="price" value="${product.price}">
-        </div>
-        <button id="R${product.id}" class="btn btn-secondary">Discard changes</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      `
+      form.innerHTML=`
+          <div class="mb-3">
+            Image link: <input type="text" class="form-control" placeholder="Image link" name="image" value="${product.image}">
+          </div>
+          <div class="mb-3">
+            Name: <input type="text" class="form-control" placeholder="Name" name="productName" value="${product.name}">
+          </div>
+          <div class="mb-3">
+            Details: <textarea class="form-control" cols="30" rows="3" placeholder="Details" name="details">${product.details}</textarea>
+          </div>
+          <div class="mb-3">
+            Price: <input type="text" class="form-control" placeholder="Price" name="price" value="${product.price}">
+          </div>
+            <button id="R${product.id}" class="btn btn-secondary">Discard changes</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+      
+      `      
       // Appends the form to the product card
       document.getElementById(product.id).appendChild(form)
       // Adds listener to discard changes button to remove the form
