@@ -4,28 +4,79 @@
       "id": "1",
       "name": "Samsung Galaxy A1",
       "details": "4G, 6.5 128GB + 6GB RAM (Dual SIM), h ",
-      "price": "29w",
+      "price": "Ksh ",
       "owner_id": "ZJ0agWFHbYPr7AnzAKJVlRUf7Eq1",
       "owner_email": "brianomosh@gmail.com",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/9180551/1.jpg?5372"
     },
     {
       "id": "2",
-      "name": "Samsung Galaxy A24",
-      "details": "4G, 6.5 128GB + 6GB RAM (Dual SIM), 5000mAh Black",
-      "price": "29999",
+      "name": "Makeup Brushes",
+      "details": "Fashion 10pcs Makeup Brushes Set For Foundation -Black",
+      "price": "KSh 439",
       "owner_id": "",
       "owner_email": "",
-      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/9180551/1.jpg?5372"
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/43/332585/1.jpg?1466"
     },
     {
       "id": "3",
-      "name": "Samsung Galaxy A24",
-      "details": "4G, 6.5 128GB + 6GB RAM (Dual SIM), 5000mAh Black",
-      "price": "29999",
+      "name": "Wlisth Men's Watches ",
+      "details": "Feature stainless steel band, and flexible screw button for durable and safe using 8MM ultra thin the same thickness as a iPhone 7 presenting compact and simple using experience.",
+      "price": "KSh 1434",
       "owner_id": "54FDW4yue5hPfhGi0RxBoh1MFP52",
       "owner_email": "brianhilsden@gmail.com",
-      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/9180551/1.jpg?5372"
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/44/407783/1.jpg?3366"
+    },
+    {
+      "id": "4",
+      "name": "Running Sneakers ",
+      "details": "his is a pair of black-gray-white sneakers embellished with bright purple, orange and blue. Fashionable and versatile at the same time, there are bright and trendy color combinations.",
+      "price": "KSh 1590",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/26/941956/1.jpg?5675"
+    },
+    {
+      "id": "5",
+      "name": "Ladies Handbags ",
+      "details": "Fashion 4pcs Ladies Handbags Women Shoulder Tote Bags Set PU Leather-Black",
+      "price": "KSh 749",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/41/159292/1.jpg?8074"
+    },{
+      "id": "6",
+      "name": "Ramtons cooker ",
+      "details": "Ramtons EB/303 4 Gas 55x55 Dark Red Cooker",
+      "price": "KSh 27172",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/53/7178771/1.jpg?0293"
+    },{
+      "id": "7",
+      "name": "Hotpoint tv",
+      "details": "Von Hotpoint 55 VEL55USVW Smart LED TV - UHD, WebOS",
+      "price": "KSh 57899",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/75/9878581/1.jpg?2977"
+    },{
+      "id": "8",
+      "name": "Door Mat",
+      "details": "Shaggy Absorbent AntiSlip Door Mat,Bathroom Mat, Bedroom Mat",
+      "price": "KSh 885",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/98/526776/1.jpg?4798"
+    },{
+      "id": "9",
+      "name": "Cactus Doll",
+      "details": "Cowboy Cute Learn To Speak Singing And Dancing Plush Cactus Doll PC",
+      "price": "KSh 1249",
+      "owner_id": "",
+      "owner_email": "",
+      "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/48/4681981/1.jpg?8248"
     }
+
   ]
 }
