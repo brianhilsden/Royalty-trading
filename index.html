@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link rel="icon" href="./images/—Pngtree—red and black logo_5517319.png">
     <!-- CSS only -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+                                                background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            margin: 0;
+            /* New line to ensure the body covers the entire page without margin gaps */
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <img src="./images/—Pngtree—red and black logo_5517319.png" alt="" width="45rem"> 
         <a class="navbar-brand" href="#">Royalty Trading inc.</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -20,12 +35,13 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
 
+
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="tradePage">Trade</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Owned items</a>
+                    <a class="nav-link" href="#" id="ownedItemsPage">Owned items</a>
                 </li>
                 
                 <li class="nav-item">
@@ -46,6 +62,7 @@
             <p>Don't have an account? <span style="color: blue;" id="register-page">Register here</span></p>
         </div>
     </div>
+
     <div id="register-form" class="p-4 shadow rounded-lg bg-light" style="display: none;">
         <input type="text" id="full_name" placeholder="Full Name" class="form-control my-2">
         <input type="email" id="emailRegister" placeholder="Email" class="form-control my-2">
@@ -55,25 +72,12 @@
             <button id="register" class="btn btn-secondary mx-1">Register</button>
         </div>
     </div>
-    
-    <table id="tradeTable" class="table table-striped" style="display: none;">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Details</th>
-            <th scope="col">Price</th>
-            <th scope="col">Owner</th>
-            <th scope="col">Buy</th>
 
-        </tr>
-        <tr>
-    
-        </tr>
+    <div id="tradeItemsContainer" style="display: none;text-align: center;"></div>
 
-    </table>
+    <div id="ownedItemsContainer" style="display: none;text-align: center;">
 
-
-
-
+    </div>
 
 
 
@@ -81,6 +85,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./src/index.js" type="module"></script>
+    <script src="./src/index.js" type="module" defer></script>
 </body>
+
 </html>
