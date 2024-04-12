@@ -170,7 +170,7 @@ function displayTradeItems(){
   tradeItemsCardContainer.style.flexWrap = "wrap";
   tradeItemsCardContainer.style.justifyContent = "space-around"
 
-  fetch("http://localhost:3000/items")
+  fetch("https://json-server-phase-1-project.onrender.com/items")
   .then(res=>res.json())
   .then(data=>{
     data.forEach(product=>{
@@ -215,7 +215,7 @@ function purchaseProduct(product){
 
   purchaseBtn.addEventListener("click",()=>{
     if(userLoggedIn){
-      fetch(`http://localhost:3000/items/${product.id}`,{
+      fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
       method:"PATCH",
       headers:{
         "Content-Type":"application/json",
@@ -254,7 +254,7 @@ function displayOwnedItems(){
     ownedItemsCardsContainer.style.display = "flex";
     ownedItemsCardsContainer.style.flexWrap = "wrap";
     ownedItemsCardsContainer.style.justifyContent = "space-around"
-    fetch("http://localhost:3000/items")
+    fetch("https://json-server-phase-1-project.onrender.com/items")
     .then(res=>res.json())
     .then(data=>{
       data.forEach(product=>{
@@ -322,7 +322,7 @@ function editProduct(product){
       })
       form.addEventListener("submit",(e)=>{
         e.preventDefault()
-        fetch(`http://localhost:3000/items/${product.id}`,{
+        fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
           method:"PATCH",
           headers:{
             "Content-Type":"application/json",
@@ -364,7 +364,7 @@ function removeProduct(product){
   removeButton.addEventListener("click",()=>{
     console.log(product.id);
     if(confirm(`Kindly confirm that you want to remove ${product.name} from the market`)){
-      fetch(`http://localhost:3000/items/${product.id}`,{
+      fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
         method:"DELETE",
         headers:{
           "Content-Type":"application/json"
