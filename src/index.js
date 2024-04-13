@@ -48,13 +48,22 @@ const app = initializeApp(firebaseConfig); // Initializes Firebase app
 const auth = getAuth(app); // Initialize Firebase authentication
 
 
-document.addEventListener("DOMContentLoaded",checkStatus) // Add event listener to check user status when DOM is loaded
+document.addEventListener("DOMContentLoaded",()=>{
+  checkStatus()
+ setTimeout(() => {
+  displayTradeItems() // Invokes displayTradeItems function after a 300ms delay to allow checkStatus to run first on page refresh or initial load
+ },300);
+
+
+
+}) // Add event listener to check user status when DOM is loaded
 
 //Function checks whether user is logged in or not
 function checkStatus(){
   onAuthStateChanged(auth,(user)=>{
     if(user){ //if user is already logged in
       user_id=user.uid // Set user ID
+     
       user_email=user.email // Set user email
       loginPageButton.style.display = "none" // Hide login page button
       userLoggedIn=true // Set user as logged in
@@ -92,6 +101,9 @@ function register() {
     const user = userCredential.user; // store user data after user is logged in
     registerForm.style.display = "none" // Hide register form
     signOutButton.style.display = "block" // Show sign out button
+    tradeItemsCardContainer.style.display = "flex"; // Show trade items container
+    tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
+    tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
     user_id=user.uid // Set user ID from the created user credential
     user_email=user.email // Set user email from the created user credential
     alert("User created"); // Notify user of account creation
@@ -136,6 +148,9 @@ function signIn(){
     loginForm.style.display="none" // Hide login form
     loginPageButton.style.display = "none" // Hide login page button
     signOutButton.style.display = "block" // Show sign out button
+    tradeItemsCardContainer.style.display = "flex"; // Show trade items container
+    tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
+    tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
     user_id = user.uid // Set user ID from signed-in user
     user_email=user.email // Set user email from signed-in user
 
@@ -155,9 +170,9 @@ function signOutUser(){
   .then(()=>{
     ownedItemsCardsContainer.innerHTML="" // Clear owned items container
     loginPageButton.style.display = "block" // Show login page button
-    ownedItemsCardsContainer.style.display = "none" // Hide owned items container
-    tradeItemsCardContainer.style.display = "none" // Hide trade items container
     signOutButton.style.display = "none" // Hide sign out button
+    displayTradeItems()// calls the function to display trade items
+  
     user_id = "" // Clear user ID
     user_email = "" // Clear user email
   })
@@ -195,14 +210,20 @@ function displayTradeItems(){
   .then(res=>res.json())
   .then(data=>{
     data.forEach(product=>{
+      
       if(!document.getElementById(`O${product.id}`) && product.owner_id!=user_id){
+        
 
         const card = document.createElement("div"); // Create a new card for each product
           card.classList.add("card", "m-2"); // Add classes to card
           card.style.width = "25rem"; // Set card width
           card.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"; // Add box shadow to card
+          // Added to enable zoom effect on hover
+          card.style.transition = "transform 0.5s";
+          card.onmouseover = () => card.style.transform = "scale(1.03)";
+          card.onmouseout = () => card.style.transform = "scale(1)";
           card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
+          <img src="${product.image}" alt="${product.name}">
             <div class="card-body">
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text" id="O${product.id}">${product.details}</p>
@@ -212,7 +233,6 @@ function displayTradeItems(){
             </div>
           `;
           tradeItemsCardContainer.appendChild(card); // Append card to container
-
 
         purchaseProduct(product) // Call function to handle product purchase
 
@@ -291,11 +311,15 @@ function displayOwnedItems(){
       // Iterates over each product and creates a card if owned by the user
       data.forEach(product=>{
         if(!document.getElementById(`E${product.id}`) && product.owner_id == user_id ){
+         
           // Creates card element for each owned item
           const card = document.createElement("div");
           card.id =product.id
           card.classList.add("card", "m-2");
           card.style.width = "25rem";
+          card.style.transition = "transform 0.5s";
+          card.onmouseover = () => card.style.transform = "scale(1.03)";
+          card.onmouseout = () => card.style.transform = "scale(1)";
           card.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"; // Adds shadow for styling
           // Sets the innerHTML of the card with product details
           card.innerHTML = `
@@ -333,6 +357,7 @@ function editProduct(product){
   const editButton = document.getElementById(`E${product.id}`)
   // Add event listener to handle edit action
   editButton.addEventListener("click",()=>{
+    console.log(product.owner_email);
     if(!document.getElementById(`F${product.id}`)){ //first checks if the form already exists
       // Creates a form for editing product details
       const form = document.createElement("form")
@@ -385,6 +410,7 @@ function editProduct(product){
           document.getElementById(`D${data.id}`).textContent=data.details
           document.getElementById(`P${data.id}`).textContent=data.price
           document.getElementById(`I${data.id}`).src=data.image
+
           // Removes the form after saving changes
           form.remove()
         }
