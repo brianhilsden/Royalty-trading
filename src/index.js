@@ -256,6 +256,7 @@ function purchaseProduct(product){
 
   // Add click event listener to the purchase button
   purchaseBtn.addEventListener("click",()=>{
+    product.previous_owner_email = product.owner_email
     if(userLoggedIn){
       // Sends a PATCH request to update the item's owner
       fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
@@ -267,7 +268,8 @@ function purchaseProduct(product){
       body:JSON.stringify(
         {
         owner_id:user_id,
-        owner_email:user_email
+        owner_email:user_email,
+        previous_owner_email:product.previous_owner_email
         }
       )
     })
@@ -328,6 +330,7 @@ function displayOwnedItems(){
               <h5 class="card-title" id="N${product.id}">${product.name}</h5>
               <p class="card-text" id="D${product.id}">${product.details}</p>
               <p class="card-text" id="P${product.id}">${product.price}</p>
+              <p>Contact previous owner: <a href="mailto:${product.previous_owner_email}">${product.previous_owner_email}</a></p>
               <button id="E${product.id}" class="btn btn-primary">Edit Product</button>
               <button id="RD${product.id}" class="btn btn-danger">Remove product from market</button>
             </div>

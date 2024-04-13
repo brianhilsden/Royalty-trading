@@ -7,6 +7,7 @@
       "price": "KSh 28,749",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/41/3235581/1.jpg?9254"
     },
     {
@@ -16,6 +17,7 @@
       "price": "KSh 439",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/43/332585/1.jpg?1466"
     },
     {
@@ -25,6 +27,7 @@
       "price": "KSh 1434",
       "owner_id": "54FDW4yue5hPfhGi0RxBoh1MFP52",
       "owner_email": "brianhilsden@gmail.com",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/44/407783/1.jpg?3366"
     },
     {
@@ -34,6 +37,7 @@
       "price": "KSh 1590",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/26/941956/1.jpg?5675"
     },
     {
@@ -43,6 +47,7 @@
       "price": "KSh 749",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/41/159292/1.jpg?8074"
     },{
       "id": "6",
@@ -51,6 +56,7 @@
       "price": "KSh 27172",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/53/7178771/1.jpg?0293"
     },{
       "id": "7",
@@ -59,6 +65,7 @@
       "price": "KSh 57899",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/75/9878581/1.jpg?2977"
     },{
       "id": "8",
@@ -67,6 +74,7 @@
       "price": "KSh 885",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/98/526776/1.jpg?4798"
     },{
       "id": "9",
@@ -75,6 +83,7 @@
       "price": "KSh 1249",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/48/4681981/1.jpg?8248"
     },
     {
@@ -84,6 +93,7 @@
       "price": "KSh 450",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/68/9432201/1.jpg?2788"
     },
     {
@@ -93,6 +103,7 @@
       "price": "Ksh3995",
       "owner_id": "",
       "owner_email": "",
+      "previous_owner_email":"",
       "image": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/765803/1.jpg?0367"
 
     }
