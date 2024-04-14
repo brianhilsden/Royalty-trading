@@ -6,11 +6,11 @@ const registerForm = document.getElementById("register-form") // Selects the reg
 const loginPageButton = document.getElementById("login-page") // Button to display login form
 const registerPageButton = document.getElementById("register-page") // Button to display register form
 const tradePageButton = document.getElementById("tradePage") // Button to display trading page data
-const addItemsPageButton = document.getElementById("addItemsPage")
+const sellItemsPageButton = document.getElementById("sellItemsPage")
 const ownedItemsPageButton = document.getElementById("ownedItemsPage") // Button to display owned items page data
 const tradeItemsCardContainer = document.getElementById("tradeItemsContainer") // Container for trading items
 const ownedItemsCardsContainer = document.getElementById("ownedItemsContainer") // Container for owned items
-const addItemsForm = document.getElementById("addItemsForm")
+const sellItemsForm = document.getElementById("sellItemsForm")
 
 
 let user_id // Variable to store the user ID
@@ -26,7 +26,7 @@ loginButton.addEventListener("click",signIn)
 signOutButton.addEventListener("click",signOutUser)
 loginPageButton.addEventListener("click",displayLoginForm)
 registerPageButton.addEventListener("click",displayRegisterForm)
-addItemsPageButton.addEventListener("click",displayAddItemsForm)
+sellItemsPageButton.addEventListener("click",displaySellItemsForm)
 
 // Calling functions to display different pages
 tradePageButton.addEventListener("click",displayTradeItems)
@@ -192,7 +192,7 @@ function displayLoginForm(){
   registerForm.style.display = "none" // Hide register form
   tradeItemsCardContainer.style.display = "none" // Hide trade items container
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
-  addItemsForm.style.display = "none"
+  sellItemsForm.style.display = "none"
 }
 
 //Function is called when user wants to register account
@@ -206,7 +206,7 @@ function displayTradeItems(){
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
   loginForm.style.display = "none" // Hide login form
   registerForm.style.display = "none" // Hide register form
-  addItemsForm.style.display = "none"
+  sellItemsForm.style.display = "none"
   tradeItemsCardContainer.style.display = "flex"; // Show trade items container
   tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
   tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
@@ -309,7 +309,7 @@ function displayOwnedItems(){
     // Adjust display settings to show the owned items and hide others
     tradeItemsCardContainer.style.display = "none";
     loginForm.style.display = "none";
-    addItemsForm.style.display = "none"
+    sellItemsForm.style.display = "none"
     registerForm.style.display = "none";
     ownedItemsCardsContainer.style.display = "flex";
     ownedItemsCardsContainer.style.flexWrap = "wrap";
@@ -457,7 +457,7 @@ function removeProduct(product){
   })
 }
 
-function displayAddItemsForm(){
+function displaySellItemsForm(){
     // Hide various page elements to focus on the add items form
     checkStatus()
     if(userLoggedIn){
@@ -467,10 +467,10 @@ function displayAddItemsForm(){
     ownedItemsCardsContainer.style.display = "none";
 
     // Make the add items form visible
-    addItemsForm.style.display = "block";
+    sellItemsForm.style.display = "block";
 
     // Adding an event listener for the submit event on the form
-    addItemsForm.addEventListener("submit",(event)=>{
+    sellItemsForm.addEventListener("submit",(event)=>{
       // Prevent the default form submit action
       event.preventDefault();
 
@@ -483,17 +483,17 @@ function displayAddItemsForm(){
         },
         // Sending the form data as JSON
         body:JSON.stringify({
-          name:addItemsForm.productName.value,
-          details:addItemsForm.details.value,
-          price:addItemsForm.price.value,
+          name:sellItemsForm.productName.value,
+          details:sellItemsForm.details.value,
+          price:sellItemsForm.price.value,
           owner_id:user_id, // using the logged-in user's ID as owner ID
           owner_email:user_email, // using the logged-in user's email as owner email
           previous_owner_email:user_email, // setting the initial previous owner email as the user's email
-          image:addItemsForm.image.value, // image URL
+          image:sellItemsForm.image.value, // image URL
         })
       })
       .then(()=>{
-        addItemsForm.reset(); // Resetting the form fields after successful submission
+        sellItemsForm.reset(); // Resetting the form fields after successful submission
       })
     })
 
