@@ -127,7 +127,7 @@ function register() {
 }
 //Functon to valiuate email
 function validate_email(email){
-  if(email.includes("@moringaschool.com")){
+  if(email.includes("moringaschool.com")){
     return true // Return true if email is a Moringa email
   }
   else{
