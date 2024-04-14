@@ -4,7 +4,7 @@
 #### Author: *Brian Omondi*
 
 ## Description  
-The project is attempts to solve a prob
+The project is attempts to solve a problem at Moringa School
 
 ## Table of Contents
 - [Installation](#installation)
