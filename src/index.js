@@ -459,7 +459,9 @@ function removeProduct(product){
 
 function displayAddItemsForm(){
     // Hide various page elements to focus on the add items form
-    tradeItemsCardContainer.style.display = "none";
+    checkStatus()
+    if(userLoggedIn){
+      tradeItemsCardContainer.style.display = "none";
     loginForm.style.display = "none";
     registerForm.style.display = "none";
     ownedItemsCardsContainer.style.display = "none";
@@ -495,6 +497,11 @@ function displayAddItemsForm(){
       })
     })
 
+
+    }
+    else{
+      alert("Kindly log in first")
+    }
 }
 
 
