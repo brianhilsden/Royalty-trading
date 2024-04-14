@@ -14,7 +14,7 @@ Available features include:
  - View owned products
  - Edit and save product details
  - Remove product from market
-
+ - Contact previous owner in case of any issues
 More features are in the works to make the website even more effective
 ## Table of Contents
 - [Installation](#installation)

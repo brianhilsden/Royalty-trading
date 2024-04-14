@@ -338,7 +338,7 @@ function displayOwnedItems(){
               <h5 class="card-title" id="N${product.id}">${product.name}</h5>
               <p class="card-text" id="D${product.id}">${product.details}</p>
               <p class="card-text" id="P${product.id}">${product.price}</p>
-              <p>Contact previous owner: <a href="mailto:${product.previous_owner_email}">${product.previous_owner_email}</a></p>
+              <p><a href="mailto:${product.previous_owner_email}">Any issues with the product? Click here to contact the previous owner </a></p>
               <button id="E${product.id}" class="btn btn-primary">Edit Product</button>
               <button id="RD${product.id}" class="btn btn-danger">Remove product from market</button>
             </div>
