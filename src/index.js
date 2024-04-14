@@ -349,7 +349,7 @@ function displayOwnedItems(){
 
   }
   else{
-    alert("Kindly log in first")
+    alert("Kindly log in first") // Alert user to log in if not already logged in
   }
 
 }
