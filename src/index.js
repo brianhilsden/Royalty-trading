@@ -5,6 +5,7 @@ const loginForm = document.getElementById("login-form") // Selects the login for
 const registerForm = document.getElementById("register-form") // Selects the register form
 const loginPageButton = document.getElementById("login-page") // Button to display login form
 const registerPageButton = document.getElementById("register-page") // Button to display register form
+const forgottenPassword = document.getElementById("forgotten")
 const tradePageButton = document.getElementById("tradePage") // Button to display trading page data
 const sellItemsPageButton = document.getElementById("sellItemsPage")
 const ownedItemsPageButton = document.getElementById("ownedItemsPage") // Button to display owned items page data
@@ -27,6 +28,7 @@ signOutButton.addEventListener("click",signOutUser)
 loginPageButton.addEventListener("click",displayLoginForm)
 registerPageButton.addEventListener("click",displayRegisterForm)
 sellItemsPageButton.addEventListener("click",displaySellItemsForm)
+forgottenPassword.addEventListener("click",resetPassword)
 
 // Calling functions to display different pages
 tradePageButton.addEventListener("click",displayTradeItems)
@@ -35,7 +37,7 @@ ownedItemsPageButton.addEventListener("click",displayOwnedItems)
  // Import needed functions from firebase
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"; // Import Firebase app module
 
- import { getAuth,createUserWithEmailAndPassword,onAuthStateChanged,signInWithEmailAndPassword,signOut} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"; // Import Firebase authentication functions
+ import { getAuth,createUserWithEmailAndPassword,onAuthStateChanged,signInWithEmailAndPassword,signOut,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"; // Import Firebase authentication functions
 
 // Firebase configuration
 const firebaseConfig = {
@@ -166,6 +168,13 @@ function signIn(){
     alert(errorCode); // Alert the error code
   })
 
+}
+
+function resetPassword(){
+  const email = prompt("Enter your email address")
+  sendPasswordResetEmail(auth,email)
+  .then(()=>alert("Password reset email sent!"))
+  .catch((error)=>alert(error.code))
 }
 
 //function is called when user presses sign out

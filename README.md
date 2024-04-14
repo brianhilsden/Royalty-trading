@@ -7,8 +7,9 @@ Buyers can contact the previous seller in case of any issues. I came up with the
 Available features include:
  - Register account
  - Sign in to account
+ - Reset password
  - Log out
- - Add products to be sold
+ - Add new products to be sold
  - View available products that you don't own
  - Purchase products
  - View owned products
