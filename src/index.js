@@ -6,9 +6,12 @@ const registerForm = document.getElementById("register-form") // Selects the reg
 const loginPageButton = document.getElementById("login-page") // Button to display login form
 const registerPageButton = document.getElementById("register-page") // Button to display register form
 const tradePageButton = document.getElementById("tradePage") // Button to display trading page data
+const addItemsPageButton = document.getElementById("addItemsPage")
 const ownedItemsPageButton = document.getElementById("ownedItemsPage") // Button to display owned items page data
 const tradeItemsCardContainer = document.getElementById("tradeItemsContainer") // Container for trading items
 const ownedItemsCardsContainer = document.getElementById("ownedItemsContainer") // Container for owned items
+const addItemsForm = document.getElementById("addItemsForm")
+
 
 let user_id // Variable to store the user ID
 let user_email // Variable to store the user email
@@ -23,6 +26,7 @@ loginButton.addEventListener("click",signIn)
 signOutButton.addEventListener("click",signOutUser)
 loginPageButton.addEventListener("click",displayLoginForm)
 registerPageButton.addEventListener("click",displayRegisterForm)
+addItemsPageButton.addEventListener("click",displayAddItemsForm)
 
 // Calling functions to display different pages
 tradePageButton.addEventListener("click",displayTradeItems)
@@ -188,6 +192,7 @@ function displayLoginForm(){
   registerForm.style.display = "none" // Hide register form
   tradeItemsCardContainer.style.display = "none" // Hide trade items container
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
+  addItemsForm.style.display = "none"
 }
 
 //Function is called when user wants to register account
@@ -201,6 +206,7 @@ function displayTradeItems(){
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
   loginForm.style.display = "none" // Hide login form
   registerForm.style.display = "none" // Hide register form
+  addItemsForm.style.display = "none"
   tradeItemsCardContainer.style.display = "flex"; // Show trade items container
   tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
   tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
@@ -302,6 +308,7 @@ function displayOwnedItems(){
     // Adjust display settings to show the owned items and hide others
     tradeItemsCardContainer.style.display = "none";
     loginForm.style.display = "none";
+    addItemsForm.style.display = "none"
     registerForm.style.display = "none";
     ownedItemsCardsContainer.style.display = "flex";
     ownedItemsCardsContainer.style.flexWrap = "wrap";
@@ -448,4 +455,38 @@ function removeProduct(product){
 
   })
 }
+
+function displayAddItemsForm(){
+    tradeItemsCardContainer.style.display = "none";
+    loginForm.style.display = "none";
+    registerForm.style.display = "none";
+    ownedItemsCardsContainer.style.display = "none";
+    addItemsForm.style.display = "block"
+    addItemsForm.addEventListener("submit",(event)=>{
+      event.preventDefault()
+      fetch("https://json-server-phase-1-project.onrender.com/items",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "Accept":"application/json"
+        },
+        body:JSON.stringify({
+          name:addItemsForm.productName.value,
+          details:addItemsForm.details.value,
+          price:addItemsForm.price.value,
+          owner_id:user_id,
+          owner_email:user_email,
+          previous_owner_email:user_email,
+          image:addItemsForm.image.value,
+        })
+      })
+      .then(res=>res.json())
+      .then(()=>{
+        addItemsForm.reset()
+      })
+    })
+
+}
+
+
 

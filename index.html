@@ -46,6 +46,10 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="#" id="addItemsPage" style="font-size: large;">Add items</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="#" id="login-page" style="font-size: large;">Log in</a>
                 </li>
                 <li class="nav-item">
@@ -75,10 +79,27 @@
         </div>
     </div>
 
+
+    <form id="addItemsForm" style="display: none;">
+        <div class="mb-3">
+            Image link: <input type="text" class="form-control" placeholder="Image link" name="image">
+          </div>
+          <div class="mb-3">
+            Name: <input type="text" class="form-control" placeholder="Name" name="productName">
+          </div>
+          <div class="mb-3">
+            Details: <textarea class="form-control" cols="30" rows="3" placeholder="Details" name="details"></textarea>
+          </div>
+          <div class="mb-3">
+            Price: <input type="text" class="form-control" placeholder="Price" name="price">
+          </div>
+            <button type="submit" class="btn btn-primary">Post item</button>
+
+    </form>
     <div id="tradeItemsContainer" style="display: none;text-align: center;"></div>
 
     <div id="ownedItemsContainer" style="display: none;text-align: center;">
-
+        
     </div>
 
 
