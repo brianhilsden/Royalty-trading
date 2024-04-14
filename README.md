@@ -4,7 +4,7 @@
 #### Author: *Brian Omondi*
 
 ## Description  
-The project
+The project is attempts to
 
 ## Table of Contents
 - [Installation](#installation)
