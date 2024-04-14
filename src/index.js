@@ -1,17 +1,18 @@
-const loginButton = document.getElementById("login"); // Selects the login button
-const registerButton = document.getElementById("register"); // Selects the register button
-const signOutButton = document.getElementById("sign_out") // Selects the sign out button
-const loginForm = document.getElementById("login-form") // Selects the login form
-const registerForm = document.getElementById("register-form") // Selects the register form
-const loginPageButton = document.getElementById("login-page") // Button to display login form
-const registerPageButton = document.getElementById("register-page") // Button to display register form
-const forgottenPassword = document.getElementById("forgotten")
 const tradePageButton = document.getElementById("tradePage") // Button to display trading page data
 const sellItemsPageButton = document.getElementById("sellItemsPage")
 const ownedItemsPageButton = document.getElementById("ownedItemsPage") // Button to display owned items page data
+const loginPageButton = document.getElementById("login-page") // Button to display login form
+const registerPageButton = document.getElementById("register-page") // Button to display register form
+const loginForm = document.getElementById("login-form") // Selects the login form
+const registerForm = document.getElementById("register-form") // Selects the register form
+const sellItemsForm = document.getElementById("sellItemsForm") // Selects the sell items form
+const loginButton = document.getElementById("login"); // Selects the login button
+const registerButton = document.getElementById("register"); // Selects the register button
+const signOutButton = document.getElementById("sign_out") // Selects the sign out button
+const forgottenPassword = document.getElementById("forgotten")
+
 const tradeItemsCardContainer = document.getElementById("tradeItemsContainer") // Container for trading items
 const ownedItemsCardsContainer = document.getElementById("ownedItemsContainer") // Container for owned items
-const sellItemsForm = document.getElementById("sellItemsForm") // Selects the sell items form
 
 
 let user_id // Variable to store the user ID
