@@ -4,13 +4,21 @@
 #### Author: *Brian Omondi*
 
 ## Description  
-The project is attempts to solve a problem at Moringa School whereby students are having a problem
+Online trading website that only works for Moringa students. It needs sign-up and login authentication with moringa email address before granting access.Hence non Moringa students cannot trade there .
+Buyers can contact the previous seller in case of any issues. Available features include:
+ - Register account
+ - Sign in to account
+ - Log out
+ - View available products
+ - Purchase products
+ - View owned products
+ - Edit and save product details
+ - Remove product from market
 
 ## Table of Contents
 - [Installation](#installation)
 - [Installation requirements](#installation-requirements)
 - [Installation instruction](#installation-instruction)
-- [Usage](#usage)
 - [Live link](#website-link)
 - [Technologies used](#technologies-used)
 - [Support and contact details](#support-and-contact-details)
@@ -25,24 +33,11 @@ Installation steps:
 - git 
 
 ### Installation instruction
+The website link works well if you want to use the web app. However, you can also run the project locally by first cloning it. The process is as follows: 
 ```
 1. git clone https://github.com/brianhilsden/Phase-1-Project
 
 ```
-## Usage
-Here are examples of the programs in use
-1. Question 1:
-
-    ![Question-1-screenshot](/images/Screenshot%20from%202024-03-29%2023-04-22.png)
-    
-2. Question 2:
-
-    ![Question-2-screenshot](/images/Screenshot%20from%202024-03-29%2023-06-23.png)
-
-3. Question 3:
-
-    ![Quesion-3-screenshot](/images/Screenshot%20from%202024-03-29%2023-11-49.png)
-
 ## Website Link
 - [https://brianhilsden.github.io/Phase-1-Project/#](https://brianhilsden.github.io/Phase-1-Project/#)
 
@@ -51,6 +46,7 @@ Here are examples of the programs in use
 - HTML
 - CSS
 - Javascript
+- Bootstrap 4.5.2
 
 ## Support and contact details
 - [github.com/brianhilsden](github.com/brianhilsden)
