@@ -285,6 +285,7 @@ function purchaseProduct(product){
       const purchaseBtn=document.getElementById(`P${product.id}`)
       purchaseBtn.disabled = true
       purchaseBtn.textContent = "Owned"
+      alert(`Successfully purchased ${product.name}! You will be contacted shortly to give your address information for delivery purposes.`)
     })
     // Alert the error if there is any during the fetch request
     .catch(error=>alert(error.message))
@@ -457,36 +458,43 @@ function removeProduct(product){
 }
 
 function displayAddItemsForm(){
+    // Hide various page elements to focus on the add items form
     tradeItemsCardContainer.style.display = "none";
     loginForm.style.display = "none";
     registerForm.style.display = "none";
     ownedItemsCardsContainer.style.display = "none";
-    addItemsForm.style.display = "block"
+
+    // Make the add items form visible
+    addItemsForm.style.display = "block";
+
+    // Adding an event listener for the submit event on the form
     addItemsForm.addEventListener("submit",(event)=>{
-      event.preventDefault()
+      // Prevent the default form submit action
+      event.preventDefault();
+
+      // POST request to add a new item to the server
       fetch("https://json-server-phase-1-project.onrender.com/items",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
           "Accept":"application/json"
         },
+        // Sending the form data as JSON
         body:JSON.stringify({
           name:addItemsForm.productName.value,
           details:addItemsForm.details.value,
           price:addItemsForm.price.value,
-          owner_id:user_id,
-          owner_email:user_email,
-          previous_owner_email:user_email,
-          image:addItemsForm.image.value,
+          owner_id:user_id, // using the logged-in user's ID as owner ID
+          owner_email:user_email, // using the logged-in user's email as owner email
+          previous_owner_email:user_email, // setting the initial previous owner email as the user's email
+          image:addItemsForm.image.value, // image URL
         })
       })
-      .then(res=>res.json())
       .then(()=>{
-        addItemsForm.reset()
+        addItemsForm.reset(); // Resetting the form fields after successful submission
       })
     })
 
 }
-
 
 

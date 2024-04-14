@@ -8,13 +8,14 @@ Available features include:
  - Register account
  - Sign in to account
  - Log out
- - View available products
+ - Add products to be sold
+ - View available products that you don't own
  - Purchase products
  - View owned products
  - Edit and save product details
  - Remove product from market
 
-More features are in the works to make tht website even more effective
+More features are in the works to make the website even more effective
 ## Table of Contents
 - [Installation](#installation)
 - [Installation requirements](#installation-requirements)
