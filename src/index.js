@@ -11,7 +11,7 @@ const sellItemsPageButton = document.getElementById("sellItemsPage")
 const ownedItemsPageButton = document.getElementById("ownedItemsPage") // Button to display owned items page data
 const tradeItemsCardContainer = document.getElementById("tradeItemsContainer") // Container for trading items
 const ownedItemsCardsContainer = document.getElementById("ownedItemsContainer") // Container for owned items
-const sellItemsForm = document.getElementById("sellItemsForm")
+const sellItemsForm = document.getElementById("sellItemsForm") // Selects the sell items form
 
 
 let user_id // Variable to store the user ID
@@ -169,12 +169,11 @@ function signIn(){
   })
 
 }
-
 function resetPassword(){
-  const email = prompt("Enter your email address")
-  sendPasswordResetEmail(auth,email)
-  .then(()=>alert("Password reset email sent!"))
-  .catch((error)=>alert(error.code))
+  const email = prompt("Enter your email address") // Prompts the user to enter their email address for password reset
+  sendPasswordResetEmail(auth,email) // Sends a password reset email to the provided email address
+  .then(()=>alert("Password reset email sent!")) // Alerts the user that the password reset email was sent successfully
+  .catch((error)=>alert(error.code)) // Alerts the user of any errors that occur during the process
 }
 
 //function is called when user presses sign out
