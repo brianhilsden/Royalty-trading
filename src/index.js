@@ -593,7 +593,7 @@ function displaySellItemsForm(){
         popup.style.top = "20%";
         popup.style.transform = "translate(-50%, -50%)";
         popup.style.color = "white"
-        popup.style.backgroundColor = "red";
+        popup.style.backgroundColor = "green";
         popup.style.padding = "20px";
         popup.style.boxShadow = "0 0 5px rgba(0,0,0,0.5)";
         document.body.appendChild(popup);
