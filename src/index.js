@@ -297,6 +297,7 @@ function searchProduct(data){
           buyItemsCardContainer.appendChild(card); // Append card to container
 
         purchaseProduct(product) // Call function to handle product purchase
+     
 
         }
       }
@@ -306,15 +307,18 @@ function searchProduct(data){
     
   })
 
-  searchForm.addEventListener("input",()=>{
-    // When input field changes, check if the search field is empty
-    if (searchForm.search.value.length == 0) {
-      // If search field is empty, display all items available
-      displayBuyItemsPage()
-    }
-  })
+  
 
 }
+searchForm.addEventListener("input",()=>{
+  // When input field changes, check if the search field is empty
+
+  if (searchForm.search.value.length == 0) {
+    // If search field is empty, display all items available
+    displayBuyItemsPage()
+  }
+})
+
 
 //Updates server and also page contents when items are purchased
 function purchaseProduct(product){
@@ -590,5 +594,4 @@ function displaySellItemsForm(){
       alert("Kindly log in first")
     }
 }
-
 
