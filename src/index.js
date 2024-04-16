@@ -458,9 +458,24 @@ function editProduct(product){
             <button id="R${product.id}" class="btn btn-secondary">Discard changes</button>
             <button type="submit" class="btn btn-primary">Save changes</button>
       
+
       `      
       // Appends the form to the product card
       document.getElementById(product.id).appendChild(form)
+      const popup = document.createElement("div");
+      popup.textContent = "Kindly fill in the form below the product.";
+      popup.style.position = "fixed";
+      popup.style.left = "50%";
+      popup.style.top = "20%";
+      popup.style.transform = "translate(-50%, -50%)";
+      popup.style.color = "white"
+      popup.style.backgroundColor = "red";
+      popup.style.padding = "20px";
+      popup.style.boxShadow = "0 0 5px rgba(0,0,0,0.5)";
+      document.body.appendChild(popup);
+      setTimeout(() => {
+        document.body.removeChild(popup);
+      }, 3000);
       // Adds listener to discard changes button to remove the form
       document.getElementById(`R${product.id}`).addEventListener("click",()=>{
         form.remove()
@@ -517,7 +532,11 @@ function removeProduct(product){
         headers:{
           "Content-Type":"application/json"
         }
-      }).catch(error=>{
+      })
+      .then(()=>{
+        document.getElementById(product.id).remove()
+      })
+      .catch(error=>{
         alert(error.message)
       })
     }
