@@ -231,7 +231,8 @@ function displayTradeItems(){
 
         const card = document.createElement("div"); // Create a new card for each product
           card.classList.add("card", "m-2"); // Add classes to card
-          card.style.width = "25rem"; // Set card width
+          card.style.width = "19.5rem"; // Set card width
+          card.style.height = "32rem"
           card.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"; // Add box shadow to card
           // Added to enable zoom effect on hover
           card.style.transition = "transform 0.5s";
@@ -335,7 +336,7 @@ function displayOwnedItems(){
           const card = document.createElement("div");
           card.id =product.id
           card.classList.add("card", "m-2");
-          card.style.width = "25rem";
+          card.style.width = "19rem";
           card.style.transition = "transform 0.5s";
           card.onmouseover = () => card.style.transform = "scale(1.03)";
           card.onmouseout = () => card.style.transform = "scale(1)";
@@ -349,7 +350,7 @@ function displayOwnedItems(){
               <p class="card-text" id="P${product.id}">${product.price}</p>
               <p><a href="mailto:${product.previous_owner_email}">Any issues with the product? Click here to contact the previous owner </a></p>
               <button id="E${product.id}" class="btn btn-primary">Edit Product</button>
-              <button id="RD${product.id}" class="btn btn-danger">Remove product from market</button>
+              <button id="RD${product.id}" class="btn btn-danger">Remove product</button>
             </div>
           `;
           // Adds the created card to the container
