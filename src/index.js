@@ -10,6 +10,7 @@ const loginButton = document.getElementById("login"); // Selects the login butto
 const registerButton = document.getElementById("register"); // Selects the register button
 const signOutButton = document.getElementById("sign_out") // Selects the sign out button
 const forgottenPassword = document.getElementById("forgotten")
+const searchForm = document.getElementById("search")
 
 const tradeItemsCardContainer = document.getElementById("tradeItemsContainer") // Container for trading items
 const ownedItemsCardsContainer = document.getElementById("ownedItemsContainer") // Container for owned items
@@ -212,6 +213,7 @@ function displayRegisterForm(){
 
 //Function to display available trade items except the ones the user owns
 function displayTradeItems(){
+  tradeItemsCardContainer.innerHTML = ""
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
   loginForm.style.display = "none" // Hide login form
   registerForm.style.display = "none" // Hide register form
@@ -224,6 +226,7 @@ function displayTradeItems(){
   fetch("https://json-server-phase-1-project.onrender.com/items")
   .then(res=>res.json())
   .then(data=>{
+    searchProduct(data)
     data.forEach(product=>{
       
       if(!document.getElementById(`O${product.id}`) && product.owner_id!=user_id){
@@ -262,6 +265,59 @@ function displayTradeItems(){
   .catch(error=>{
     alert(error.message) // Alert error message in case of fetch failure
   })
+}
+
+function searchProduct(data){
+  searchForm.addEventListener("submit",(event)=>{
+    event.preventDefault();
+    tradeItemsCardContainer.innerHTML = ""
+
+    data.forEach(product=>{
+      if(!document.getElementById(`O${product.id}`) && product.owner_id!=user_id){
+        // Check if the product is not owned by the current user and the element with the product id does not exist
+        if(product.name.toLowerCase().includes(searchForm.search.value.toLowerCase())){
+          // If the product name includes the search value then proceed with the operation
+
+          const card = document.createElement("div"); // Create a new card for each product
+          card.classList.add("card", "m-2"); // Add classes to card
+          card.style.width = "19.5rem"; // Set card width
+          card.style.height = "32rem"
+          card.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"; // Add box shadow to card
+          // Added to enable zoom effect on hover
+          card.style.transition = "transform 0.5s";
+          card.onmouseover = () => card.style.transform = "scale(1.03)";
+          card.onmouseout = () => card.style.transform = "scale(1)";
+          card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text" id="O${product.id}">${product.details}</p>
+              <p class="card-text">Price: ${product.price}</p>
+
+              <button id="P${product.id}" class="btn btn-primary">Purchase</button>
+            </div>
+          `;
+          tradeItemsCardContainer.appendChild(card); // Append card to container
+
+        purchaseProduct(product) // Call function to handle product purchase
+
+
+        }
+        
+
+     
+
+      }
+    }
+
+    )
+    
+    
+
+
+
+  })
+
 }
 
 //Updates server and also page contents when items are purchased

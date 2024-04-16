@@ -29,9 +29,17 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
 
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0" id="search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+                &nbsp;
+                &nbsp;
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" id="tradePage" style="font-size: large;">Trade</a>
+                    <a class="nav-link" href="#" id="tradePage" style="font-size: large;">Buy items</a>
                 </li>
                 
 
@@ -49,10 +57,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="sign_out" style="font-size: large;">Log out</a>
                 </li>
+
+              
+             
             </ul>
         </div>
     </nav>
-
     
     <div id="login-form" class="p-4 shadow rounded-lg bg-light" style="display: none;">
         <input type="email" id="emailLogin" placeholder="Email" class="form-control my-2">
