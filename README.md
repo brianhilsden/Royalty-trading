@@ -49,6 +49,7 @@ The website link works well if you want to use the web app. However, you can als
 - CSS
 - Javascript
 - Bootstrap 4.5.2
+- Firebase
 
 ## Support and contact details
 - [github.com/brianhilsden](github.com/brianhilsden)
