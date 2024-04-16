@@ -149,16 +149,13 @@ function validate_password(password,password2) {
 function signIn(){
   const email = document.getElementById("emailLogin").value;
   const password = document.getElementById("passwordLogin").value;
-
+  tradeItemsCardContainer.innerHTML = "" // Clears the HTML content of the trade items card container, effectively removing all item cards displayed.
   signInWithEmailAndPassword(auth,email,password)
   .then(userCredential=>{
     const user = userCredential.user; // User successfully signed in
-    loginForm.style.display="none" // Hide login form
     loginPageButton.style.display = "none" // Hide login page button
     signOutButton.style.display = "block" // Show sign out button
-    tradeItemsCardContainer.style.display = "flex"; // Show trade items container
-    tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
-    tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
+    displayTradeItems()
     user_id = user.uid // Set user ID from signed-in user
     user_email=user.email // Set user email from signed-in user
 
@@ -182,10 +179,10 @@ function resetPassword(){
 function signOutUser(){
   signOut(auth)
   .then(()=>{
+    displayTradeItems()// calls the function to display trade items
     ownedItemsCardsContainer.innerHTML="" // Clear owned items container
     loginPageButton.style.display = "block" // Show login page button
     signOutButton.style.display = "none" // Hide sign out button
-    displayTradeItems()// calls the function to display trade items
   
     user_id = "" // Clear user ID
     user_email = "" // Clear user email
@@ -198,6 +195,7 @@ function signOutUser(){
 
 //function is called when user presses log in
 function displayLoginForm(){
+  searchForm.style.display = "none" // Hides the search form, making it invisible on the page
   loginForm.style.display="block" // Show login form
   registerForm.style.display = "none" // Hide register form
   tradeItemsCardContainer.style.display = "none" // Hide trade items container
@@ -213,11 +211,11 @@ function displayRegisterForm(){
 
 //Function to display available trade items except the ones the user owns
 function displayTradeItems(){
-  tradeItemsCardContainer.innerHTML = ""
+  searchForm.style.display = "block" // Show the search form to allow users to search items
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
   loginForm.style.display = "none" // Hide login form
   registerForm.style.display = "none" // Hide register form
-  sellItemsForm.style.display = "none"
+  sellItemsForm.style.display = "none" // Hides the sell items form, making it invisible on the page
   tradeItemsCardContainer.style.display = "flex"; // Show trade items container
   tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
   tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
@@ -229,7 +227,7 @@ function displayTradeItems(){
     searchProduct(data)
     data.forEach(product=>{
       
-      if(!document.getElementById(`O${product.id}`) && product.owner_id!=user_id){
+      if(!document.getElementById(`O${product.id}`)){
         
 
         const card = document.createElement("div"); // Create a new card for each product
@@ -273,7 +271,7 @@ function searchProduct(data){
     tradeItemsCardContainer.innerHTML = ""
 
     data.forEach(product=>{
-      if(!document.getElementById(`O${product.id}`) && product.owner_id!=user_id){
+      if(!document.getElementById(`O${product.id}`)){
         // Check if the product is not owned by the current user and the element with the product id does not exist
         if(product.name.toLowerCase().includes(searchForm.search.value.toLowerCase())){
           // If the product name includes the search value then proceed with the operation
@@ -304,7 +302,7 @@ function searchProduct(data){
         }
       }
     }
-    
+
     )
     
   })
@@ -373,6 +371,7 @@ function displayOwnedItems(){
   if(userLoggedIn){
     // Adjust display settings to show the owned items and hide others
     tradeItemsCardContainer.style.display = "none";
+    searchForm.style.display = "none"
     loginForm.style.display = "none";
     sellItemsForm.style.display = "none"
     registerForm.style.display = "none";
@@ -526,7 +525,8 @@ function displaySellItemsForm(){
     // Hide various page elements to focus on the add items form
     checkStatus()
     if(userLoggedIn){
-      tradeItemsCardContainer.style.display = "none";
+    tradeItemsCardContainer.style.display = "none";
+    searchForm.style.display = "none"
     loginForm.style.display = "none";
     registerForm.style.display = "none";
     ownedItemsCardsContainer.style.display = "none";
