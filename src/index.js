@@ -211,7 +211,7 @@ function displayRegisterForm(){
   registerForm.style.display="block" // Show register form
 }
 
-//Function to display available items except the ones the user owns
+//Function to display available items
 function displayBuyItemsPage(){
   searchForm.style.display = "block" // Show the search form to allow users to search items
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
