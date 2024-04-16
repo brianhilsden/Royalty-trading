@@ -57,7 +57,7 @@ const auth = getAuth(app); // Initialize Firebase authentication
 
 
 document.addEventListener("DOMContentLoaded",()=>{
-  checkStatus()
+  checkStatus() // Function to check the user's authentication status
  setTimeout(() => {
   displayBuyItemsPage() // Invokes displayBuyItemsPage function after a 300ms delay to allow checkStatus to run first on page refresh or initial load
  },300);
@@ -126,7 +126,7 @@ function register() {
   }
 
 }
-//Functon to valiuate email
+//Functon to validate email
 function validate_email(email){
   if(email.includes("moringaschool.com")){
     return true // Return true if email is a Moringa email
@@ -168,6 +168,8 @@ function signIn(){
   })
 
 }
+
+//Function to reset password
 function resetPassword(){
   const email = prompt("Enter your email address") // Prompts the user to enter their email address for password reset
   sendPasswordResetEmail(auth,email) // Sends a password reset email to the provided email address
@@ -264,6 +266,7 @@ function displayBuyItemsPage(){
   })
 }
 
+//Uses user input to search for specific products and display them
 function searchProduct(data){
   searchForm.addEventListener("submit",(event)=>{
     event.preventDefault();
@@ -310,8 +313,9 @@ function searchProduct(data){
   
 
 }
+
+  // When search input field changes, check if the search field is empty and then display all items
 searchForm.addEventListener("input",()=>{
-  // When input field changes, check if the search field is empty
 
   if (searchForm.search.value.length == 0) {
     // If search field is empty, display all items available
@@ -409,7 +413,7 @@ function displayOwnedItems(){
             <div class="card-body">
               <h5 class="card-title" id="N${product.id}">${product.name}</h5>
               <p class="card-text" id="D${product.id}">${product.details}</p>
-              <p class="card-text" id="P${product.id}">${product.price}</p>
+              <p class="card-text" id="Pr${product.id}">${product.price}</p>
               <p><a href="mailto:${product.previous_owner_email}">Any issues with the product? Click here to contact the previous owner </a></p>
               <button id="E${product.id}" class="btn btn-primary">Edit Product</button>
               <button id="RD${product.id}" class="btn btn-danger">Remove product</button>
@@ -508,7 +512,7 @@ function editProduct(product){
           // Updates the product card with new details
           document.getElementById(`N${data.id}`).textContent=data.name
           document.getElementById(`D${data.id}`).textContent=data.details
-          document.getElementById(`P${data.id}`).textContent=data.price
+          document.getElementById(`Pr${data.id}`).textContent=data.price
           document.getElementById(`I${data.id}`).src=data.image
 
           // Removes the form after saving changes
@@ -524,6 +528,7 @@ function editProduct(product){
 
 }
 
+//Function removes the selected item from the database completely when remove button is pressed
 function removeProduct(product){
   // Select the remove button by product id
   const removeButton = document.getElementById(`RD${product.id}`)
@@ -550,10 +555,13 @@ function removeProduct(product){
   })
 }
 
+//Displays form for posting new products
 function displaySellItemsForm(){
-    // Hide various page elements to focus on the add items form
-    checkStatus()
+   
+    checkStatus() //Sets userLoggedIn status so the user can only add items if they are logged in
     if(userLoggedIn){
+      
+       // Hide various page elements to focus on the add items form
     buyItemsCardContainer.style.display = "none";
     searchForm.style.display = "none"
     loginForm.style.display = "none";

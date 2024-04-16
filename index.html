@@ -6,21 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royalty Inc. Trading</title>
     <link rel="icon" href="./images/—Pngtree—red and black logo_5517319.png">
-   
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <style>
-        body {
-            background-color: whitesmoke;
-            }
-        </style>
 </head>
 
-<body>
+<body style="background-color: whitesmoke;">
+    
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <img src="./images/—Pngtree—red and black logo_5517319.png" alt="" width="45rem">&nbsp;
-        <a class="navbar-brand" href="#" style="font-family: 'Roboto', sans-serif; font-weight: bold;font-size:xx-large;">Royalty Trading inc.</a>
+        <a class="navbar-brand" href="#"
+            style="font-family: 'Roboto', sans-serif; font-weight: bold;font-size:xx-large;">Royalty Trading inc.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,7 +28,8 @@
 
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0" id="search">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="searchBar">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                            name="search" id="searchBar">
                         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </li>
@@ -41,7 +39,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#" id="buyItemsPage" style="font-size: large;">Buy items</a>
                 </li>
-                
+
 
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="ownedItemsPage" style="font-size: large;">Owned items</a>
@@ -58,12 +56,10 @@
                     <a class="nav-link" href="#" id="sign_out" style="font-size: large;">Log out</a>
                 </li>
 
-              
-             
             </ul>
         </div>
     </nav>
-    
+
     <div id="login-form" class="p-4 shadow rounded-lg bg-light" style="display: none;">
         <input type="email" id="emailLogin" placeholder="Email" class="form-control my-2">
         <input type="password" id="passwordLogin" placeholder="Password" class="form-control my-2">
@@ -87,25 +83,27 @@
 
     <form id="sellItemsForm" style="display: none;text-align: center;">
         <div class="mb-3">
-            Image link: <input type="text" class="form-control" placeholder="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/41/3235581/1.jpg?9254" name="image">
-          </div>
-          <div class="mb-3">
+            Image link: <input type="text" class="form-control"
+                placeholder="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/41/3235581/1.jpg?9254"
+                name="image">
+        </div>
+        <div class="mb-3">
             Name: <input type="text" class="form-control" placeholder="Product name" name="productName">
-          </div>
-          <div class="mb-3">
-            Details: <textarea class="form-control" cols="30" rows="3" placeholder="Details about your product e.g features, material etc" name="details"></textarea>
-          </div>
-          <div class="mb-3">
+        </div>
+        <div class="mb-3">
+            Details: <textarea class="form-control" cols="30" rows="3"
+                placeholder="Details about your product e.g features, material etc" name="details"></textarea>
+        </div>
+        <div class="mb-3">
             Price: <input type="text" class="form-control" placeholder="Ksh2599" name="price">
-          </div>
-            <button type="submit" class="btn btn-primary">Post item</button>
+        </div>
+        <button type="submit" class="btn btn-primary">Post item</button>
 
     </form>
-    <div id="buyItemsContainer" style="display: none;text-align: center;"></div>
 
-    <div id="ownedItemsContainer" style="display: none;text-align: center;">
-        
-    </div>
+    <div id="buyItemsContainer" style="display: none;text-align: center;"> </div>
+
+    <div id="ownedItemsContainer" style="display: none;text-align: center;"> </div>
 
 
 
