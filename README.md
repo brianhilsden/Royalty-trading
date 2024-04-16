@@ -10,7 +10,8 @@ Available features include:
  - Reset password
  - Log out
  - Add new products to be sold
- - View available products that you don't own
+ - View available products
+ - Search for products
  - Purchase products
  - View owned products
  - Edit and save product details
