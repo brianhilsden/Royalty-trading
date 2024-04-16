@@ -1,4 +1,4 @@
-const tradePageButton = document.getElementById("tradePage") // Button to display trading page data
+const buyItemsPageButton = document.getElementById("buyItemsPage") // Button to display trading page data
 const sellItemsPageButton = document.getElementById("sellItemsPage")
 const ownedItemsPageButton = document.getElementById("ownedItemsPage") // Button to display owned items page data
 const loginPageButton = document.getElementById("login-page") // Button to display login form
@@ -12,7 +12,7 @@ const signOutButton = document.getElementById("sign_out") // Selects the sign ou
 const forgottenPassword = document.getElementById("forgotten")
 const searchForm = document.getElementById("search")
 
-const tradeItemsCardContainer = document.getElementById("tradeItemsContainer") // Container for trading items
+const buyItemsCardContainer = document.getElementById("buyItemsContainer") // Container for trading items
 const ownedItemsCardsContainer = document.getElementById("ownedItemsContainer") // Container for owned items
 
 
@@ -33,7 +33,7 @@ sellItemsPageButton.addEventListener("click",displaySellItemsForm)
 forgottenPassword.addEventListener("click",resetPassword)
 
 // Calling functions to display different pages
-tradePageButton.addEventListener("click",displayTradeItems)
+buyItemsPageButton.addEventListener("click",displayBuyItemsPage)
 ownedItemsPageButton.addEventListener("click",displayOwnedItems)
 
  // Import needed functions from firebase
@@ -59,7 +59,7 @@ const auth = getAuth(app); // Initialize Firebase authentication
 document.addEventListener("DOMContentLoaded",()=>{
   checkStatus()
  setTimeout(() => {
-  displayTradeItems() // Invokes displayTradeItems function after a 300ms delay to allow checkStatus to run first on page refresh or initial load
+  displayBuyItemsPage() // Invokes displayBuyItemsPage function after a 300ms delay to allow checkStatus to run first on page refresh or initial load
  },300);
 
 
@@ -109,9 +109,9 @@ function register() {
     const user = userCredential.user; // store user data after user is logged in
     registerForm.style.display = "none" // Hide register form
     signOutButton.style.display = "block" // Show sign out button
-    tradeItemsCardContainer.style.display = "flex"; // Show trade items container
-    tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
-    tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
+    buyItemsCardContainer.style.display = "flex"; // Show buy items container
+    buyItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
+    buyItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
     user_id=user.uid // Set user ID from the created user credential
     user_email=user.email // Set user email from the created user credential
     alert("User created"); // Notify user of account creation
@@ -149,13 +149,13 @@ function validate_password(password,password2) {
 function signIn(){
   const email = document.getElementById("emailLogin").value;
   const password = document.getElementById("passwordLogin").value;
-  tradeItemsCardContainer.innerHTML = "" // Clears the HTML content of the trade items card container, effectively removing all item cards displayed.
+  buyItemsCardContainer.innerHTML = "" // Clears the HTML content of the buy items card container, effectively removing all item cards displayed.
   signInWithEmailAndPassword(auth,email,password)
   .then(userCredential=>{
     const user = userCredential.user; // User successfully signed in
     loginPageButton.style.display = "none" // Hide login page button
     signOutButton.style.display = "block" // Show sign out button
-    displayTradeItems()
+    displayBuyItemsPage()
     user_id = user.uid // Set user ID from signed-in user
     user_email=user.email // Set user email from signed-in user
 
@@ -179,7 +179,7 @@ function resetPassword(){
 function signOutUser(){
   signOut(auth)
   .then(()=>{
-    displayTradeItems()// calls the function to display trade items
+    displayBuyItemsPage()// calls the function to display buy items page
     ownedItemsCardsContainer.innerHTML="" // Clear owned items container
     loginPageButton.style.display = "block" // Show login page button
     signOutButton.style.display = "none" // Hide sign out button
@@ -198,7 +198,7 @@ function displayLoginForm(){
   searchForm.style.display = "none" // Hides the search form, making it invisible on the page
   loginForm.style.display="block" // Show login form
   registerForm.style.display = "none" // Hide register form
-  tradeItemsCardContainer.style.display = "none" // Hide trade items container
+  buyItemsCardContainer.style.display = "none" // Hide buy items container
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
   sellItemsForm.style.display = "none"
 }
@@ -209,16 +209,16 @@ function displayRegisterForm(){
   registerForm.style.display="block" // Show register form
 }
 
-//Function to display available trade items except the ones the user owns
-function displayTradeItems(){
+//Function to display available items except the ones the user owns
+function displayBuyItemsPage(){
   searchForm.style.display = "block" // Show the search form to allow users to search items
   ownedItemsCardsContainer.style.display = "none" // Hide owned items container
   loginForm.style.display = "none" // Hide login form
   registerForm.style.display = "none" // Hide register form
   sellItemsForm.style.display = "none" // Hides the sell items form, making it invisible on the page
-  tradeItemsCardContainer.style.display = "flex"; // Show trade items container
-  tradeItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
-  tradeItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
+  buyItemsCardContainer.style.display = "flex"; // Show buy items container
+  buyItemsCardContainer.style.flexWrap = "wrap"; // Set flex-wrap style
+  buyItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
 
   //Fetch items from server and display them using cards
   fetch("https://json-server-phase-1-project.onrender.com/items")
@@ -229,7 +229,6 @@ function displayTradeItems(){
       
       if(!document.getElementById(`O${product.id}`)){
         
-
         const card = document.createElement("div"); // Create a new card for each product
           card.classList.add("card", "m-2"); // Add classes to card
           card.style.width = "19.5rem"; // Set card width
@@ -249,7 +248,7 @@ function displayTradeItems(){
               <button id="P${product.id}" class="btn btn-primary">Purchase</button>
             </div>
           `;
-          tradeItemsCardContainer.appendChild(card); // Append card to container
+          buyItemsCardContainer.appendChild(card); // Append card to container
 
         purchaseProduct(product) // Call function to handle product purchase
 
@@ -268,7 +267,7 @@ function displayTradeItems(){
 function searchProduct(data){
   searchForm.addEventListener("submit",(event)=>{
     event.preventDefault();
-    tradeItemsCardContainer.innerHTML = ""
+    buyItemsCardContainer.innerHTML = ""
 
     data.forEach(product=>{
       if(!document.getElementById(`O${product.id}`)){
@@ -295,7 +294,7 @@ function searchProduct(data){
               <button id="P${product.id}" class="btn btn-primary">Purchase</button>
             </div>
           `;
-          tradeItemsCardContainer.appendChild(card); // Append card to container
+          buyItemsCardContainer.appendChild(card); // Append card to container
 
         purchaseProduct(product) // Call function to handle product purchase
 
@@ -310,8 +309,8 @@ function searchProduct(data){
   searchForm.addEventListener("input",()=>{
     // When input field changes, check if the search field is empty
     if (searchForm.search.value.length == 0) {
-      // If search field is empty, display all trade items
-      displayTradeItems()
+      // If search field is empty, display all items available
+      displayBuyItemsPage()
     }
   })
 
@@ -326,7 +325,7 @@ function purchaseProduct(product){
   // Add click event listener to the purchase button
   purchaseBtn.addEventListener("click",()=>{
     product.previous_owner_email = product.owner_email
-    if(userLoggedIn){
+    if(userLoggedIn && product.owner_id != user_id){
       // Sends a PATCH request to update the item's owner
       fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
       method:"PATCH",
@@ -347,16 +346,20 @@ function purchaseProduct(product){
       // After successful purchase, disable the button and change its text
       const purchaseBtn=document.getElementById(`P${product.id}`)
       purchaseBtn.disabled = true
-      purchaseBtn.textContent = "Owned"
+      purchaseBtn.textContent = "Successfully purchased"
       alert(`Successfully purchased ${product.name}! You will be contacted shortly to give your address information for delivery purposes.`)
     })
     // Alert the error if there is any during the fetch request
     .catch(error=>alert(error.message))
 
     }
-    else{
+    else if(userLoggedIn == false){
       // If the user is not logged in, prompt for login
       alert("Kindly log in to start trading")
+    }
+    else{
+      // Shows a message if the user attempts to purchase an item they already own
+      alert("You already own this product!")
     }
 
   })
@@ -370,7 +373,7 @@ function displayOwnedItems(){
 
   if(userLoggedIn){
     // Adjust display settings to show the owned items and hide others
-    tradeItemsCardContainer.style.display = "none";
+    buyItemsCardContainer.style.display = "none";
     searchForm.style.display = "none"
     loginForm.style.display = "none";
     sellItemsForm.style.display = "none"
@@ -525,7 +528,7 @@ function displaySellItemsForm(){
     // Hide various page elements to focus on the add items form
     checkStatus()
     if(userLoggedIn){
-    tradeItemsCardContainer.style.display = "none";
+    buyItemsCardContainer.style.display = "none";
     searchForm.style.display = "none"
     loginForm.style.display = "none";
     registerForm.style.display = "none";
@@ -561,7 +564,6 @@ function displaySellItemsForm(){
         sellItemsForm.reset(); // Resetting the form fields after successful submission
       })
     })
-
 
     }
     else{
