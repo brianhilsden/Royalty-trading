@@ -163,7 +163,6 @@ function signIn(){
   })
   .catch(error=>{
     const errorCode=error.code // Get error code from error
-    const errorMessage = error.message // Get error message from error
     alert(errorCode); // Alert the error code
   })
 
@@ -191,7 +190,7 @@ function signOutUser(){
   })
   .catch((error)=>{
     const errorCode=error.code // Get error code from error
-    alert(error.message) // Alert the error message
+    alert(errorCode) // Alert the error message
   })
 }
 
