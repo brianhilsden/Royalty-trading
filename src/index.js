@@ -466,6 +466,8 @@ function editProduct(product){
       `      
       // Appends the form to the product card
       document.getElementById(product.id).appendChild(form)
+
+      //Add popup message to notify user about the form below the product
       const popup = document.createElement("div");
       popup.textContent = "Kindly fill in the form below the product.";
       popup.style.position = "fixed";
@@ -586,6 +588,8 @@ function displaySellItemsForm(){
       })
       .then(()=>{
         sellItemsForm.reset(); // Resetting the form fields after successful submission
+
+        //Add popup message to notify user of successful posting
         const popup = document.createElement("div");
         popup.textContent = "Successully posted the product.";
         popup.style.position = "fixed";
