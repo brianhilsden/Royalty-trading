@@ -346,6 +346,7 @@ function purchaseProduct(product){
       // After successful purchase, disable the button and change its text
       const purchaseBtn=document.getElementById(`P${product.id}`)
       purchaseBtn.disabled = true
+      purchaseBtn.className = "btn btn-secondary"
       purchaseBtn.textContent = "Successfully purchased"
       alert(`Successfully purchased ${product.name}! You will be contacted shortly to give your address information for delivery purposes.`)
     })
