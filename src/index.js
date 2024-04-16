@@ -301,21 +301,20 @@ function searchProduct(data){
 
         purchaseProduct(product) // Call function to handle product purchase
 
-
         }
-        
-
-     
-
       }
     }
-
+    
     )
     
-    
+  })
 
-
-
+  searchForm.addEventListener("input",()=>{
+    // When input field changes, check if the search field is empty
+    if (searchForm.search.value.length == 0) {
+      // If search field is empty, display all trade items
+      displayTradeItems()
+    }
   })
 
 }
