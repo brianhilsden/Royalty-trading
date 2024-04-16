@@ -586,6 +586,20 @@ function displaySellItemsForm(){
       })
       .then(()=>{
         sellItemsForm.reset(); // Resetting the form fields after successful submission
+        const popup = document.createElement("div");
+        popup.textContent = "Successully posted the product.";
+        popup.style.position = "fixed";
+        popup.style.left = "50%";
+        popup.style.top = "20%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.color = "white"
+        popup.style.backgroundColor = "red";
+        popup.style.padding = "20px";
+        popup.style.boxShadow = "0 0 5px rgba(0,0,0,0.5)";
+        document.body.appendChild(popup);
+        setTimeout(() => {
+          document.body.removeChild(popup);
+        }, 3000);
       })
     })
 
