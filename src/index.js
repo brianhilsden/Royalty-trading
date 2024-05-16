@@ -619,4 +619,3 @@ function displaySellItemsForm(){
       alert("Kindly log in first")
     }
 }
-

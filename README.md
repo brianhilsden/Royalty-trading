@@ -1,4 +1,4 @@
-# Phase 1 Project
+# Royalty Trading inc.
 #### Date: 12/April/2024
 
 ## Description  
