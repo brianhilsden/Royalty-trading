@@ -1,75 +1,64 @@
-# Hospital Management System
-🏥 Overview
-The Hospital Management System (HMS) is designed to streamline the operations of a hospital, including patient registration, appointment booking, and management of medical records. The system provides a comprehensive interface for patients, doctors, and administrative staff, facilitating efficient hospital management.
+# Royalty Trading inc.
+#### Date: 12/April/2024
 
-📜 Features
-Patient Module:
+## Description  
+Online trading website that only works for Moringa students. It needs sign-up and login authentication with moringa email address before granting access.Hence non Moringa students cannot trade there .
+Buyers can contact the previous seller in case of any issues. I came up with the idea to build an app that Moringa students can trust. It also helps in promoting their business ventures. 
+Available features include:
+ - Register account
+ - Sign in to account
+ - Reset password
+ - Log out
+ - Add new products to be sold
+ - View available products
+ - Search for products
+ - Purchase products
+ - View owned products
+ - Edit and save product details
+ - Remove product from market
+ - Contact previous owner in case of any issues
+More features are in the works to make the website even more effective
+## Table of Contents
+- [Installation](#installation)
+- [Installation requirements](#installation-requirements)
+- [Installation instruction](#installation-instruction)
+- [Live link](#website-link)
+- [Technologies used](#technologies-used)
+- [Support and contact details](#support-and-contact-details)
+- [License](#license)
 
-Patient registration and login.
-Appointment booking with doctors.
-View appointment history.
-Manage personal medical records.
-Doctor Module:
 
-Doctor registration and login.
-View scheduled appointments.
-Update patient treatment records.
-Administrative Module:
+## Installation
+The website link works well if you want to use the web app. However, you can also run the project locally by first cloning it. The process is as follows: 
+1. Use git clone to download the repository from github
 
-Manage hospital staff.
-View and update hospital resources.
-Generate reports on hospital operations.
-🛠️ Installation
-To install and set up the Hospital Management System, follow these steps:
+## Installation requirements
+- git 
 
-Clone the repository:
+### Installation instruction
+```
+1. git clone https://github.com/brianhilsden/Phase-1-Project
 
-sh
-Copy code
-git clone https://github.com/MungaiNjeri/hospital-management-system.git
-Navigate to the project directory:
+```
+## Website Link
+- [https://brianhilsden.github.io/Phase-1-Project/#](https://brianhilsden.github.io/Phase-1-Project/#)
 
-sh
-Copy code
-cd hospital-management-system
-Install the necessary dependencies:
 
-sh
-Copy code
-pip install -r requirements.txt
-Set up the database:
+## Technologies used
+- HTML
+- CSS
+- Javascript
+- Bootstrap 4.5.2
+- Firebase
 
-sh
-Copy code
-python manage.py migrate
-Run the development server:
+## Support and contact details
+- [github.com/brianhilsden](github.com/brianhilsden)
+- brianhilsden@gmail.com
 
-sh
-Copy code
-python manage.py runserver
-Open your web browser and go to http://localhost:8000 to access the system.
+## Authors
+ - *Brian Omondi*
+### License
+The content of this site is licensed under the MIT license
+Copyright &copy; 2024.
 
-💻 Usage
-Patient
-Register or log in to your account.
-Book an appointment by selecting a doctor and a time slot.
-View your appointment history and manage your medical records.
-Doctor
-Log in to your account.
-View your scheduled appointments.
-Update treatment records for your patients.
-Administrator
-Log in to your account.
-Manage hospital staff and resources.
-Generate and view reports on hospital operations.
-🧩 Technologies Used
-Frontend: HTML, CSS, JavaScript
-Backend: Django (Python)
-Database: SQLite (default), can be configured to use other databases
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-👥 Contributors
-Your Name
-Contributor 1
-Contributor 2
