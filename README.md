@@ -1,6 +1,7 @@
 # Royalty Trading inc.
 #### Date: 12/April/2024
 
+
 ## Description  
 Online trading website that only works for Moringa students. It needs sign-up and login authentication with moringa email address before granting access.Hence non Moringa students cannot trade there .
 Buyers can contact the previous seller in case of any issues. I came up with the idea to build an app that Moringa students can trust. It also helps in promoting their business ventures. 
