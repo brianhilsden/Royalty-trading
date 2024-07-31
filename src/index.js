@@ -222,7 +222,7 @@ function displayBuyItemsPage(){
   buyItemsCardContainer.style.justifyContent = "space-around" // Set justify content style
 
   //Fetch items from server and display them using cards
-  fetch("https://json-server-phase-1-project.onrender.com/items")
+  fetch("https://json-server-vercel-royalty-trading-ro4na85qh.vercel.app/items")
   .then(res=>res.json())
   .then(data=>{
     searchProduct(data)
@@ -334,7 +334,7 @@ function purchaseProduct(product){
     product.previous_owner_email = product.owner_email
     if(userLoggedIn && product.owner_id != user_id){
       // Sends a PATCH request to update the item's owner
-      fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
+      fetch(`https://json-server-vercel-royalty-trading-ro4na85qh.vercel.app/items/${product.id}`,{
       method:"PATCH",
       headers:{
         "Content-Type":"application/json",
@@ -390,7 +390,7 @@ function displayOwnedItems(){
     ownedItemsCardsContainer.style.flexWrap = "wrap";
     ownedItemsCardsContainer.style.justifyContent = "space-around"
     // Fetches all items from the server
-    fetch("https://json-server-phase-1-project.onrender.com/items")
+    fetch("https://json-server-vercel-royalty-trading-ro4na85qh.vercel.app/items")
     .then(res=>res.json())
     .then(data=>{
       // Iterates over each product and creates a card if owned by the user
@@ -493,7 +493,7 @@ function editProduct(product){
       form.addEventListener("submit",(e)=>{
         e.preventDefault()
         // Sends PATCH request with the updated product details
-        fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
+        fetch(`https://json-server-vercel-royalty-trading-ro4na85qh.vercel.app/items/${product.id}`,{
           method:"PATCH",
           headers:{
             "Content-Type":"application/json",
@@ -537,7 +537,7 @@ function removeProduct(product){
     // Confirm dialog to ensure user intends to remove the product
     if(confirm(`Kindly confirm that you want to remove ${product.name} from the market`)){
       // Sends DELETE request to remove the product
-      fetch(`https://json-server-phase-1-project.onrender.com/items/${product.id}`,{
+      fetch(`https://json-server-vercel-royalty-trading-ro4na85qh.vercel.app/items/${product.id}`,{
         method:"DELETE",
         headers:{
           "Content-Type":"application/json"
@@ -576,7 +576,7 @@ function displaySellItemsForm(){
       event.preventDefault();
 
       // POST request to add a new item to the server
-      fetch("https://json-server-phase-1-project.onrender.com/items",{
+      fetch("https://json-server-vercel-royalty-trading-ro4na85qh.vercel.app/items",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
