@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #login-form,#register-form{
     display: flex;
     justify-content: center;
